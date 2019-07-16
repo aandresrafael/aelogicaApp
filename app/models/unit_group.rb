@@ -1,0 +1,2 @@
+class UnitGroup < ApplicationRecord
+end

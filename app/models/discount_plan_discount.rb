@@ -1,0 +1,2 @@
+class DiscountPlanDiscount < ApplicationRecord
+end

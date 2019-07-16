@@ -1,0 +1,2 @@
+class UnitAmenity < ApplicationRecord
+end

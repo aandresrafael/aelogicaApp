@@ -1,0 +1,2 @@
+class DiscountPlanControl < ApplicationRecord
+end
