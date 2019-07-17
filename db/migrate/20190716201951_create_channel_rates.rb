@@ -1,7 +1,6 @@
 class CreateChannelRates < ActiveRecord::Migration[5.2]
   def change
-    create_table :channel_rates, id: false do |t|
-      t.string :id, null: false
+    create_table :channel_rates, id: :string do |t|
       t.string :base_rate_type
       t.string :modifier_type
       t.boolean :turned_on

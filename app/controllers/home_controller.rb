@@ -1,15 +1,25 @@
 class HomeController < ApplicationController
-  before_action :detroy_users
+  before_action :clean_db
 
   def index
-    EtlAelogica::UserEtl.call
-    @users = User.all
+    EtlAelogica::EtlOrganizer.call
+    @units = Unit.all
     render :index
   end
 
   protected
-  def detroy_users
-    #In order to run it several times
-    User.destroy_all
+
+  def clean_db
+    Unit.destroy_all
+    UnitGroup.destroy_all
+    ChannelRate.destroy_all
+    UnitType.destroy_all
+    InvoiceableFee.destroy_all
+    UnitAmenity.destroy_all
+    DiscountPlan.destroy_all
+    DiscountPlanDiscount.destroy_all
+    DiscountPlanControl.destroy_all
+    ClientApplication.destroy_all
   end
+
 end

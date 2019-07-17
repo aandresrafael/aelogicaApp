@@ -1,7 +1,6 @@
 class CreateInvoiceableFees < ActiveRecord::Migration[5.2]
   def change
-    create_table :invoiceable_fees, id: false do |t|
-      t.string :id, null: false
+    create_table :invoiceable_fees, id: :string do |t|
       t.string :product_code
       t.string :kind
       t.string :description
@@ -12,6 +11,7 @@ class CreateInvoiceableFees < ActiveRecord::Migration[5.2]
       t.boolean :show_in_sales_center
       t.integer :tax_total
       t.integer :total
+      t.string :unit_group_id
       t.timestamps
     end
   end

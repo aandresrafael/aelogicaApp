@@ -1,7 +1,6 @@
 class CreateDiscountPlanControls < ActiveRecord::Migration[5.2]
   def change
-    create_table :discount_plan_controls, id: false do |t|
-      t.string :id, null: false
+    create_table :discount_plan_controls, id: :string do |t|
       t.string :kind
       t.integer :min_value
       t.integer :max_value

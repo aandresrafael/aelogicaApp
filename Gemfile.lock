@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/aandresrafael/etl_aelogica.git
-  revision: 319fd0bedda62c005b088705872b0d9b4b782927
+  revision: 59c2df880f101ee8df081adf7cab8115b9bc94c8
   specs:
     etl_aelogica (0.1.0)
       light-service (~> 0.12.0)

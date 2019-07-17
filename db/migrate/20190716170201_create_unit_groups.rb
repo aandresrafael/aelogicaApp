@@ -1,7 +1,6 @@
 class CreateUnitGroups < ActiveRecord::Migration[5.2]
   def change
-    create_table :unit_groups, id: false do |t|
-      t.string :id, null: false
+    create_table :unit_groups, id: :string do |t|
       t.float :price, default: 0
       t.string :group_key
       t.string :name
@@ -24,6 +23,8 @@ class CreateUnitGroups < ActiveRecord::Migration[5.2]
       t.string :description
       t.float :average_rent
       t.string :active_rate_type
+      t.string :channel_rate_id
+      t.string :unit_type_id
       t.timestamps
     end
   end

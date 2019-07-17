@@ -15,8 +15,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "channel_rates", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "channel_rates", id: :string, force: :cascade do |t|
     t.string "base_rate_type"
     t.string "modifier_type"
     t.boolean "turned_on"
@@ -30,8 +29,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "client_applications", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "client_applications", id: :string, force: :cascade do |t|
     t.string "name"
     t.boolean "channel_rates_on"
     t.boolean "internal"
@@ -39,8 +37,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "discount_plan_controls", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "discount_plan_controls", id: :string, force: :cascade do |t|
     t.string "kind"
     t.integer "min_value"
     t.integer "max_value"
@@ -53,8 +50,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "discount_plan_discounts", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "discount_plan_discounts", id: :string, force: :cascade do |t|
     t.string "discount_type"
     t.integer "month_number"
     t.integer "amount"
@@ -64,8 +60,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "discount_plans", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "discount_plans", id: :string, force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "public_description"
@@ -91,12 +86,12 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
     t.integer "priority"
     t.string "role_permission"
     t.string "always_discount_plan_discount_id"
+    t.string "unit_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "invoiceable_fees", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "invoiceable_fees", id: :string, force: :cascade do |t|
     t.string "product_code"
     t.string "kind"
     t.string "description"
@@ -107,21 +102,21 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
     t.boolean "show_in_sales_center"
     t.integer "tax_total"
     t.integer "total"
+    t.string "unit_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "unit_amenities", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "unit_amenities", id: :string, force: :cascade do |t|
     t.string "name"
     t.string "short_code"
     t.boolean "show_in_sales_center_filter_dropdown"
+    t.string "unit_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "unit_groups", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "unit_groups", id: :string, force: :cascade do |t|
     t.float "price", default: 0.0
     t.string "group_key"
     t.string "name"
@@ -144,12 +139,13 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
     t.string "description"
     t.float "average_rent"
     t.string "active_rate_type"
+    t.string "channel_rate_id"
+    t.string "unit_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "unit_types", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "unit_types", id: :string, force: :cascade do |t|
     t.string "name"
     t.boolean "deleted"
     t.string "internal_account_code"
@@ -158,8 +154,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_232203) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "units", id: false, force: :cascade do |t|
-    t.string "id", null: false
+  create_table "units", id: :string, force: :cascade do |t|
     t.float "price"
     t.string "name"
     t.string "description"

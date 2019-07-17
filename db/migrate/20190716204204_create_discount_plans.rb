@@ -1,7 +1,6 @@
 class CreateDiscountPlans < ActiveRecord::Migration[5.2]
   def change
-    create_table :discount_plans, id: false do |t|
-      t.string :id, null: false
+    create_table :discount_plans, id: :string do |t|
       t.string :name
       t.string :description
       t.string :public_description
@@ -27,6 +26,7 @@ class CreateDiscountPlans < ActiveRecord::Migration[5.2]
       t.integer :priority
       t.string :role_permission
       t.string :always_discount_plan_discount_id
+      t.string :unit_group_id
 
       t.timestamps
     end

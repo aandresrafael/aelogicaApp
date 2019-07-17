@@ -1,7 +1,6 @@
 class CreateUnits < ActiveRecord::Migration[5.2]
   def change
-    create_table :units, id: false do |t|
-      t.string :id, null: false
+    create_table :units, id: :string do |t|
       t.float :price
       t.string :name
       t.string :description
